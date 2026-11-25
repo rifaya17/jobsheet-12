@@ -1,16 +1,15 @@
 public class Pengunjungcafe23 {
-    static void daftarPengunjung(int nomorMeja, String... namaPengunjung) {
-        System.out.println("Meja nomor " + nomorMeja);
-        System.out.println("Daftar Nama Pengunjung: ");
-        for (int i = 0; i < namaPengunjung.length; i++) {
-            System.out.println("- " + namaPengunjung[i]);
+    static int hitungTotalBelanja(int... harga) {
+        int total = 0;
+        for (int i = 0; i < harga.length; i++) {
+            total += harga[i];
         }
-        System.out.println();
+        return total;
     }
 
     public static void main(String[] args) {
-        daftarPengunjung(1, "Ali", "Budi", "Citra");
-        daftarPengunjung(2, "Andi");
-        daftarPengunjung(3, "Doni", "Eti", "Fahmi", "Galih");
+        System.out.println("1 argumen : Rp. " + hitungTotalBelanja(15000));
+        System.out.println("3 argumen : Rp. " + hitungTotalBelanja(15000, 20000, 22000));
+        System.out.println("5 argumen : Rp. " + hitungTotalBelanja(15000, 20000, 22000, 12000, 10000));
     }
 }
