@@ -8,7 +8,19 @@ public class Kafe23_3 {
         return hargaTotal;
     }
 
-    public static void Menu() {
+    public static void Menu(String nama, boolean member, int jamKunjung) {
+        System.out.println("Selamat datang, " + nama + "!");
+        if (member) {
+            System.out.println("Status: Member");
+        } else {
+            System.out.println("Status: Non-member");
+        }
+
+        if (jamKunjung >= 14 && jamKunjung <= 16) {
+            System.out.println("Happy Hour! Diskon 20% untuk semua minuman");
+        }
+
+        System.out.println();
         System.out.println("===== MENU RESTO KAFE =====");
         System.out.println("1. Kopi Hitam - Rp. 15,000");
         System.out.println("2. Cappuccino - Rp. 20,000");
@@ -22,7 +34,17 @@ public class Kafe23_3 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Menu();
+
+        System.out.print("Masukkan nama pelanggan: ");
+        String nama = sc.nextLine();
+        System.out.print("Apakah member? (y/n): ");
+        String jawab = sc.nextLine();
+        boolean member = jawab.equalsIgnoreCase("y");
+        System.out.print("Masukkan jam kunjung (0-23): ");
+        int jamKunjung = sc.nextInt();
+        System.out.println();
+
+        Menu(nama, member, jamKunjung);
 
         System.out.print("\nMasukkan nomor menu yang ingin anda pesan: ");
         int pilihanMenu = sc.nextInt();
@@ -31,5 +53,7 @@ public class Kafe23_3 {
 
         int totalBayar = hitungTotal(pilihanMenu, banyakItem);
         System.out.println("Total harga untuk pesanan Anda: Rp. " + totalBayar);
+
+        sc.close();
     }
 }
