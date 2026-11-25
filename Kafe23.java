@@ -19,5 +19,5 @@ public static void Menu(String namaPelanggan, boolean isMember) {
     }
 
     public static void main(String[] args) {
-        Menu("Budi", false);
+        Menu("Andi", true);
     }
